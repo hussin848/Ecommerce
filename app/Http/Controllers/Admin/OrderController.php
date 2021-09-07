@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -40,7 +40,7 @@ DB::table('orders')->where('id',$id)->update(['status'=>1]);
         'alert-type'=>'success' );
  return Redirect()->to('admin/pading/order')->with($notification);
     }
-    
+
  public function AccepPayment()
     {
       $order=DB::table('orders')->where('status',1)->get();
@@ -75,7 +75,7 @@ DB::table('orders')->where('id',$id)->update(['status'=>3]);
       $order=DB::table('orders')->where('status',3)->get();
      // dd($order);
       return view('admin.order.pending',compact('order'));
-    } 
+    }
     public function DeleveryDone($id)
     {
 DB::table('orders')->where('id',$id)->update(['status'=>4]);
@@ -89,7 +89,7 @@ DB::table('orders')->where('id',$id)->update(['status'=>4]);
       $order=DB::table('orders')->where('status',4)->get();
      // dd($order);
       return view('admin.order.pending',compact('order'));
-    } 
+    }
 
    public function seo(){
     $seo = DB::table('seo')->first();

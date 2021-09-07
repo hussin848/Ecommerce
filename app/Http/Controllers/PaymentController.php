@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use Cart;
 use Session;
@@ -12,7 +12,7 @@ use App\Mail\InvoiceMail;
 
 class PaymentController extends Controller
 {
-    
+
     public function Payment(Request $request)
     {
      $data = array();
@@ -51,7 +51,7 @@ class PaymentController extends Controller
         'source' => $token,
         'metadata' => ['order_id'=>uniqid()],
         ]);
-        
+
          //dd($charge);
          $data =array();
          $data['user_id'] = Auth::id();
@@ -73,7 +73,7 @@ class PaymentController extends Controller
           $data['month']=date('F');
           $data['year']=date('Y');
           $order_id= DB::table('orders')->insertGetId($data);
-         
+
          Mail::to($email)->send(new invoiceMail($data));
           $shipping = array();
           $shipping['order_id']=$order_id;
@@ -113,7 +113,7 @@ class PaymentController extends Controller
        $email = Auth::user()->email;
       $total =$request->total;
 
-    
+
          //dd($charge);
          $data =array();
          $data['user_id'] = Auth::id();
@@ -132,7 +132,7 @@ class PaymentController extends Controller
           $data['month']=date('F');
           $data['year']=date('Y');
           $order_id= DB::table('orders')->insertGetId($data);
-         
+
          Mail::to($email)->send(new invoiceMail($data));
           $shipping = array();
           $shipping['order_id']=$order_id;
