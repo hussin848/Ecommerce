@@ -44,13 +44,13 @@ $setting = DB::table('sitsetting')->first();
                         <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend/images/mail.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">{{$setting->email}}</a></div>
                         <div class="top_bar_content ml-auto">
 
-@guest 
+@guest
 @else
                                <div class="top_bar_menu">
                                 <ul class="standard_dropdown top_bar_dropdown">
                                  <li>
-                                   
-                                    <a href="#" data-toggle="modal" data-target="#exampleModal">My Order Traking </a>                                                         
+
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal">My Order Traking </a>
                                     </li>
                                 </ul>
                             </div>
@@ -62,7 +62,7 @@ $setting = DB::table('sitsetting')->first();
 
                             <div class="top_bar_menu">
                                 <ul class="standard_dropdown top_bar_dropdown">
-@php 
+@php
 $language = Session()->get('lang');
 @endphp
 
@@ -72,15 +72,15 @@ $language = Session()->get('lang');
                                         @else
                                         <a href="{{route('language.arabic')}}">عربي  <i class="fas fa-chevron-down"></i></a>
                                     @endif
-                         
-                                      
-                                       
+
+
+
                                     </li>
                                 </ul>
                             </div>
                             <div class="top_bar_user">
-                                 @guest 
-                                <div><a href="{{route('login')}}"> <div class="user_icon"> <img src="{{asset('public/frontend/images/user.svg')}}" alt=""></div> Register/Login</a>     
+                                 @guest
+                                <div><a href="{{route('login')}}"> <div class="user_icon"> <img src="{{asset('public/frontend/images/user.svg')}}" alt=""></div> Register/Login</a>
                                 </div>
                                 @else
                                  <ul class="standard_dropdown top_bar_dropdown">
@@ -94,14 +94,14 @@ $language = Session()->get('lang');
                                     </li>
                                       </ul>
                                       @endguest
-                              
-                                
-                               
+
+
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>      
+            </div>
         </div>
         <!-- Header Main -->
         <div class="header_main">
@@ -110,13 +110,13 @@ $language = Session()->get('lang');
                     <!-- Logo -->
                     <div class="col-lg-2 col-sm-3 col-3 order-1">
                         <div class="logo_container">
-                            <div class="logo"><a href="{{url('/')}}"><img src="{{ asset('frontend/images/logo.png')}}" alt=""> C.T.P</a></div>
+                            <div class="logo"><a href="{{url('/')}}"><img src="{{ asset('frontend/images/marker.png')}}" alt=""> Hussein</a></div>
                         </div>
                     </div>
 
 
 
-@php 
+@php
 $category =DB::table('categories')->get();
 @endphp
                     <!-- Search -->
@@ -152,10 +152,10 @@ $category =DB::table('categories')->get();
                         <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                             <div class="wishlist d-flex flex-row align-items-center justify-content-end">
 
-                             @guest 
+                             @guest
 
-                             @else 
-                             @php 
+                             @else
+                             @php
                              $wishlist = DB::table('wishlists')->where('user_id',Auth::id())->get();
                              @endphp
 
@@ -169,10 +169,10 @@ $category =DB::table('categories')->get();
                             </div>
                              @endguest
                             <!-- Cart -->
-                             @guest 
+                             @guest
 
-                             @else 
-                            
+                             @else
+
 
                             <div class="cart">
                                 <div class="cart_container d-flex flex-row align-items-center justify-content-end">
@@ -201,7 +201,7 @@ $category =DB::table('categories')->get();
 
 
 
-       
+
     <!-- Characteristics -->
    @yield('content')
 
@@ -235,7 +235,7 @@ $category =DB::table('categories')->get();
                                 <li><a href="{{$setting->twitter}}"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="{{$setting->youtube}}"><i class="fab fa-youtube"></i></a></li>
                                 <li><a href="{{$setting->instagram}}"><i class="fab fa-instagram"></i></a></li>
-                            
+
                             </ul>
                         </div>
                     </div>
@@ -329,7 +329,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
       </div>
       <div class="modal-body">
         <form method="post" action="{{route('order.tracking')}}">
-            @csrf 
+            @csrf
             <div  class="modal-body">
                 <label>status code</label>
                 <input type="text" name="code" required="" class="form-control" placeholder="yor order status code">
@@ -339,7 +339,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       
+
       </div>
     </div>
   </div>
@@ -394,7 +394,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                   break;
           }
         @endif
-     </script>  
+     </script>
 
 
 

@@ -23,3 +23,4 @@ class Report
         return $next($request);
     }
 }
+ 
